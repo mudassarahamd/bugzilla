@@ -1,0 +1,2 @@
+module AppdashboardHelper
+end
