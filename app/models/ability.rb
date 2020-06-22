@@ -11,10 +11,17 @@ class Ability
         can :manage, :all
       end
       if user.developer_role?
-        can :read, :projects 
+        can :read, :projects
+        can :read, :errors
+        can :update :projects, user_id: user.id
+        can :update, Project do |project|
+          !project.locked?
+        can :destroy, :errors
       end
       if user.qa_role?
         can :create, :errors
+        can :destroy, :errors
+        can :read, :projects
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
