@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :bugs
   get 'projects/index'
   get 'projects/show'
   get 'projects/edit'
